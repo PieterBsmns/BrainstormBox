@@ -1,0 +1,10 @@
+name: Idee 
+description: Deel een idee
+labels: ["spelen"]
+body:
+  - type: textarea
+    attributes:
+      label: Jouw idee
+      placeholder: Beschrijf hier je idee...
+    validations:
+      required: true

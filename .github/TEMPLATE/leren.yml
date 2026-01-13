@@ -1,0 +1,10 @@
+name: Idee – Leren
+description: Deel een idee over leren
+labels: ["leren"]
+body:
+  - type: textarea
+    attributes:
+      label: Jouw idee
+      placeholder: Beschrijf hier je idee...
+    validations:
+      required: true
