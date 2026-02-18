@@ -50,3 +50,28 @@ p{margin:0 0 12px 0; color:var(--muted)}
   .form-embed .responsive-iframe{ min-height:520px }
   .sheet-embed .responsive-iframe{ min-height:360px }
 }
+
+/* Navigation / index button styles (touch-friendly) */
+.card ul{ padding-left:0; margin:0; }
+.nav-list{ display:flex; flex-direction:column; gap:12px; padding:0; margin:0; }
+.nav-list li{ list-style:none; }
+.nav-list a{
+  display:block;
+  padding:18px 20px;
+  font-size:18px;
+  text-align:center;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 2px 6px rgba(11,87,208,0.12);
+  transition: transform .06s ease, box-shadow .08s ease;
+}
+.nav-list a:active{ transform: translateY(1px); }
+.nav-list a:focus{ outline:3px solid rgba(11,87,208,0.14); }
+
+@media(min-width:640px){
+  .nav-list{ flex-direction:row; gap:12px; }
+  .nav-list a{ font-size:16px; padding:14px 18px; }
+}
