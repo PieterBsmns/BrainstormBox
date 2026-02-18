@@ -71,7 +71,6 @@ p{margin:0 0 12px 0; color:var(--muted)}
 .nav-list a:active{ transform: translateY(1px); }
 .nav-list a:focus{ outline:3px solid rgba(11,87,208,0.14); }
 
-@media(min-width:640px){
-  .nav-list{ flex-direction:row; gap:12px; }
-  .nav-list a{ font-size:16px; padding:14px 18px; }
-}
+/* Keep same stacked button layout on all viewports for consistency */
+.nav-list{ flex-direction:column; gap:12px; }
+.nav-list a{ font-size:18px; padding:18px 20px; }
