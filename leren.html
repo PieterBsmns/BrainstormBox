@@ -20,40 +20,15 @@
 <h3>Inzendingen (openbaar)</h3>
 <div id="responses">Laden inzendingen…</div>
 
-<script>
-// Gebruik de gepubliceerde Sheet-id uit je URL (stuk na /d/ tot /pubhtml)
-const sheetId = '2PACX-1vRK7hqfvAaBrwncl_QICK5GBXfBiPuL5da9tEjcnLTH6nfrIQp3l8YbQiqkNYG3fbL7_HE-b4ypZ1Zt';
-const gid = '0';
-const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}`;
+<!-- Simpele embedding van de gepubliceerde Sheet (gebruik de pubhtml-link) -->
+<iframe
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRK7hqfvAaBrwncl_QICK5GBXfBiPuL5da9tEjcnLTH6nfrIQp3l8YbQiqkNYG3fbL7_HE-b4ypZ1Zt/pubhtml?gid=0&single=true&widget=true&headers=false"
+  width="100%"
+  height="480"
+  frameborder="0"
+  style="border:1px solid #ddd;">
+</iframe>
 
-function showError(e){
-  const el = document.getElementById('responses');
-  el.textContent = 'Fout bij laden van inzendingen: '+e;
-}
-
-fetch(url).then(r=>r.text()).then(text=>{
-  // strip JavaScript wrapper and parse JSON
-  const jsonText = text.replace(/^.*?({[\s\S]*})[^}]*$/,'$1');
-  const json = JSON.parse(jsonText);
-  const cols = json.table.cols || [];
-  const rows = json.table.rows || [];
-  const container = document.getElementById('responses');
-  if(!rows.length){ container.textContent = 'Nog geen inzendingen.'; return; }
-  const table = document.createElement('table');
-  table.style.borderCollapse = 'collapse';
-  table.style.width = '100%';
-  const header = document.createElement('tr');
-  cols.forEach(c=>{ const th = document.createElement('th'); th.textContent = c.label||''; th.style.border='1px solid #ccc'; th.style.padding='6px'; header.appendChild(th); });
-  table.appendChild(header);
-  rows.forEach(r=>{
-    const tr = document.createElement('tr');
-    r.c.forEach(cell=>{ const td = document.createElement('td'); td.textContent = cell && cell.v != null ? cell.v : ''; td.style.border='1px solid #eee'; td.style.padding='6px'; tr.appendChild(td); });
-    table.appendChild(tr);
-  });
-  container.innerHTML = '';
-  container.appendChild(table);
-}).catch(showError);
-</script>
 
 </body>
 </html>
